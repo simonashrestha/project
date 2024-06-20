@@ -14,6 +14,16 @@ blogs = Table(
     Column("gender", String),
 )
 
+users = Table(
+    "users",
+    metadata,
+    Column("id", Integer, primary_key=True),
+    Column("username", String(50), unique= True),
+    Column("password", String(150)),
+    Column("email", String)
+    
+)
+
 # Create the table in the database
 engine = create_engine(DATABASE_URL)
 metadata.create_all(engine)
