@@ -11,7 +11,7 @@ blogs = Table(
     Column("id", Integer, primary_key=True),
     Column("blog_description", Text),
     Column("self_description", Text),
-    Column("gender", String),
+    Column("gender", String)
 )
 
 users = Table(

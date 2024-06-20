@@ -1,4 +1,3 @@
-from venv import logger
 from sqlalchemy import select
 from models import database, blogs
 
