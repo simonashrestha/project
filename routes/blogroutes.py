@@ -1,9 +1,8 @@
-from starlette.applications import Starlette
-from starlette.requests import Request
+from starlette.routing import Router
 from starlette.responses import JSONResponse
-from starlette.routing import Route, Router
-from database import database
-from blogmodel import create_blog, get_blog, update_blog, delete_blog
+from starlette.requests import Request
+from database.database import database
+from models.blogmodel import create_blog, get_blog, update_blog, delete_blog
 
 app = Router()
 
@@ -38,10 +37,10 @@ async def delete(request: Request):
     await delete_blog(id)
     return JSONResponse({"message": "Blog deleted successfully"})
 
-@app.on_event("startup")
-async def startup():
-    await database.connect()
+# @app.on_event("startup")
+# async def startup():
+#     await database.connect()
 
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
+# @app.on_event("shutdown")
+# async def shutdown():
+#     await database.disconnect()
